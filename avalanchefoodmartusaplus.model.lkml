@@ -16,6 +16,8 @@ explore: category {}
 
 explore: ccmetrics {}
 
+
+
 explore: customer {
   join: region {
     type: left_outer

@@ -98,7 +98,8 @@ view: sales_fact {
 
   measure: total_store_sales {
     type: sum
-    sql: ${store_sales} ;;
+    # divide by 1M for better looking output
+    sql: ${store_sales}/1000000 ;;
     drill_fields: [sales_fact.total_store_sales,sales_fact.sales_year,product_class.product_category]
     #link: {
     #url: "{{link}}&pivots=product_class.product_category&fill_fields=sales_fact.sales_year&sorts=sales_fact.sales_year+desc,product_class.product_category&limit=500&query_timezone=America%2FLos_Angeles&vis=%7B%22stacking%22%3A%22normal%22%2C%22color_application%22%3A%7B%22collection_id%22%3A%22legacy%22%2C%22palette_id%22%3A%22mixed_neutrals%22%7D%2C%22show_value_labels%22%3Afalse%2C%22label_density%22%3A25%2C%22legend_position%22%3A%22center%22%2C%22x_axis_gridlines%22%3Afalse%2C%22y_axis_gridlines%22%3Atrue%2C%22show_view_names%22%3Atrue%2C%22point_style%22%3A%22none%22%2C%22series_colors%22%3A%7B%7D%2C%22series_types%22%3A%7B%7D%2C%22limit_displayed_rows%22%3Afalse%2C%22y_axis_combined%22%3Atrue%2C%22show_y_axis_labels%22%3Atrue%2C%22show_y_axis_ticks%22%3Atrue%2C%22y_axis_tick_density%22%3A%22default%22%2C%22y_axis_tick_density_custom%22%3A5%2C%22show_x_axis_label%22%3Atrue%2C%22show_x_axis_ticks%22%3Atrue%2C%22x_axis_scale%22%3A%22auto%22%2C%22y_axis_scale_mode%22%3A%22linear%22%2C%22x_axis_reversed%22%3Afalse%2C%22y_axis_reversed%22%3Afalse%2C%22plot_size_by_field%22%3Afalse%2C%22ordering%22%3A%22none%22%2C%22show_null_labels%22%3Afalse%2C%22show_totals_labels%22%3Afalse%2C%22show_silhouette%22%3Afalse%2C%22totals_color%22%3A%22%23808080%22%2C%22type%22%3A%22looker_column%22%7D&filter_config=%7B%7D&origin=share-expanded"}
